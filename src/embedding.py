@@ -6,6 +6,8 @@ def embedder(model_type):
 
     Inputs:
         model_type - Hugging Face or OpenAI
+    Outputs:
+        embeddings - embedding model
     """
     if model_type == "Open AI":
         embeddings = OpenAIEmbeddings()
