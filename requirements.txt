@@ -5,3 +5,4 @@ langchain
 tiktoken
 langchain[docarray]
 streamlit
+PyPDF2==3.0.1
