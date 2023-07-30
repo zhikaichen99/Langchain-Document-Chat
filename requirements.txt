@@ -4,3 +4,4 @@ pandas
 langchain
 tiktoken
 langchain[docarray]
+streamlit
