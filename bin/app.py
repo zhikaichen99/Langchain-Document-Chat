@@ -16,6 +16,18 @@ from src.vectorstore import create_vectorstore
 from src.conversation import create_conversation_chain
 
 
+def handle_userinput(user_question):
+    response = st.session_state.conversation({"question": user_question})
+    st.session_state.chat_history = response["chat_history"]
+
+    for i, message in enumerate(st.session_state.chat_history):
+        if i % 2 == 0:
+            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html = True)
+        else:
+            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html = True)
+    
+
+
 _ = load_dotenv(find_dotenv())
 
 
@@ -50,5 +62,20 @@ with st.sidebar:
             # create conversation chain
             st.session_state.conversation = create_conversation_chain(model_type, vectorstore)
 
+if pdf_docs:
+    if prompt := st.chat_input("How can I help you?"):
+        response = st.session_state.conversation({"question": prompt})
+        st.session_state.chat_history = response["chat_history"]
 
+        for i, message in enumerate(st.session_state.chat_history):
+            if i % 2 == 0:
+                with st.chat_message("user"):
+                    st.markdown(message.content)
+            else:
+                with st.chat_message("assistant"):
+                    message_placeholder = st.empty()
+                    full_response = ""
+                    full_response += message.content
+                    message_placeholder.markdown(full_response + "▌")
+        
 
