@@ -1,10 +1,19 @@
 import streamlit as st
+import sys
+import os
 from dotenv import load_dotenv, find_dotenv
-from ..src.ingest import pdf_to_text
-from ..src.textchunks import create_text_chunks
-from ..src.embedding import embedder
-from ..src.vectorstore import create_vectorstore
-from ..src.conversation import create_conversation_chain
+
+
+current_path = os.path.dirname(os.path.abspath(__file__))
+parent_folder_path = os.path.abspath(os.path.join(current_path, os.pardir))
+sys.path.append(parent_folder_path)
+
+
+from src.ingest import pdf_to_text
+from src.textchunks import create_text_chunks
+from src.embedding import embedder
+from src.vectorstore import create_vectorstore
+from src.conversation import create_conversation_chain
 
 
 _ = load_dotenv(find_dotenv())
