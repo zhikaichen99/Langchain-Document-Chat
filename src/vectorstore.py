@@ -1,6 +1,6 @@
 from langchain.vectorstores import FAISS
 
-def create_vectorstore_openai(text, embedding_model):
+def create_vectorstore(text, embedding_model):
     """
     This function embeds the text from the document and stores in a vectorstore
 
