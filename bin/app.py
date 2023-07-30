@@ -76,6 +76,6 @@ if pdf_docs:
                     message_placeholder = st.empty()
                     full_response = ""
                     full_response += message.content
-                    message_placeholder.markdown(full_response + "▌")
+                    message_placeholder.markdown(full_response)
         
 
