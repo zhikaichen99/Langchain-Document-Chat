@@ -11,5 +11,5 @@ def create_vectorstore(text, embedding_model):
         vectorstore - vector store containing the embedded text
     """
     # create vectorstore and store embedded text
-    vectorstore = FAISS.from_texts(text = text, embedding = embedding_model)
+    vectorstore = FAISS.from_texts(texts = text, embedding = embedding_model)
     return vectorstore
