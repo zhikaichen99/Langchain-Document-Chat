@@ -17,8 +17,8 @@ from src.conversation import create_conversation_chain
 load_dotenv(find_dotenv())
 
 # Set app title and page config
-st.set_page_config(page_title="🤗💬 HugChat")
-st.sidebar.title('🤗💬 HugChat')
+st.set_page_config(page_title="🤗 Langchain Document Chat")
+st.sidebar.title('🤗 Langchain Document Chat')
 
 def process_pdf_docs(pdf_docs, model_type):
     # Extract text from pdf documents
