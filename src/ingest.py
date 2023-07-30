@@ -1,6 +1,14 @@
 from PyPDF2 import PdfReader
 
 def pdf_to_text(pdf_docs):
+    """
+    Function to extract text from pdf documents
+
+    Inputs:
+        pdf_docs - list of uploaded pdf documents
+    Outputs:
+        text - extracted text
+    """
     text = ""
     for pdf in pdf_docs:
         # initialize pdfreader
