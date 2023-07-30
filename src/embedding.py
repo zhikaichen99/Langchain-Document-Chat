@@ -1,12 +1,15 @@
 from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
-from langchain.vectorstores import FAISS
 
-def openai_embedder():
-    # load OpenAI embedding model
-    embeddings = OpenAIEmbeddings()
-    return embeddings
+def embedder(model_type):
+    """
+    Function that returns the embedding model that will be used to embed the text
 
-def huggingface_embedder():
-    # load huggingface embedding model
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    Inputs:
+        model_type - Hugging Face or OpenAI
+    """
+    if model_type == "Open AI":
+        embeddings = OpenAIEmbeddings()
+    else:
+        embeddings = HuggingFaceInstructEmbeddings(model_name = "hkunlp/instructor-xl")
+
     return embeddings
