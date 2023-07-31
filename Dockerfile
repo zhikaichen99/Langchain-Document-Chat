@@ -5,7 +5,7 @@ FROM python:3.10
 WORKDIR /langchain-Document-Chat
 
 # copy of requirements file
-COPY requirements.txt .
+COPY requirements.txt ./requirements.txt
 
 # install pacakges
 RUN pip3 install -r requirements.txt
