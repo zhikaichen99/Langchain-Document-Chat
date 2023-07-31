@@ -16,9 +16,6 @@ from src.conversation import create_conversation_chain
 # Load environment variables
 load_dotenv(find_dotenv())
 
-os.environ["OPENAI_API_KEY"] = "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"
-
-
 # Set app title and page config
 st.set_page_config(page_title="🤗 Langchain Document Chat")
 st.sidebar.title('🤗 Langchain Document Chat')
