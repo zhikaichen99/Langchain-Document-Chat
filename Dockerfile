@@ -8,7 +8,7 @@ WORKDIR /langchain-Document-Chat
 COPY requirements.txt .
 
 # install pacakges
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # copying all files over
 COPY . .
