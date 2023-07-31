@@ -40,7 +40,7 @@ def main():
         st.session_state.chat_history = None
 
     # Sidebar widgets
-    model_type = st.sidebar.selectbox("Select Model Type", ["Open AI", "Hugging Face"])
+    model_type = st.sidebar.selectbox("Select Model Type", ["Open AI"])
     pdf_docs = st.sidebar.file_uploader("Upload PDF file and click Process", accept_multiple_files=True)
 
     # Process PDF documents and create conversation chain on button click
