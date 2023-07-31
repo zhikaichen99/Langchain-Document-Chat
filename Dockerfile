@@ -8,7 +8,7 @@ WORKDIR /langchain-Document-Chat
 COPY requirements.txt .
 
 # install pacakges
-RUN pip install -r requirements.txt --default-timeout=100 future
+RUN pip install -r requirements.txt
 
 # copying all files over
 COPY . .
