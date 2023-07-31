@@ -27,7 +27,7 @@ def process_pdf_docs(pdf_docs, model_type):
 
     if not text:
         # if no text is extracted, return None and show an error message
-        st.error("Can't extract text from this document. Try another one")
+        st.error("Can't extract text from documents. Try another one")
     # Create text chunks
     text_chunks = create_text_chunks(text)
     # Load embedding
