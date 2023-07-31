@@ -22,20 +22,27 @@ st.set_page_config(page_title="🤗 Langchain Document Chat")
 st.sidebar.title('🤗 Langchain Document Chat')
 
 def process_pdf_docs(pdf_docs, model_type):
-    # Extract text from pdf documents
-    text = pdf_to_text(pdf_docs)
+    try:
+        # Extract text from pdf documents
+        text = pdf_to_text(pdf_docs)
 
-    if not text:
-        # if no text is extracted, return None and show an error message
-        st.error("Can't extract text from documents. Try another one")
-    # Create text chunks
-    text_chunks = create_text_chunks(text)
-    # Load embedding
-    embedding = embedder(model_type)
-    # Create vector store
-    vectorstore = create_vectorstore(text_chunks, embedding)
-    # Create conversation chain
-    return create_conversation_chain(model_type, vectorstore)
+        if not text:
+            # If no text is extracted, return None
+            st.error("Can't extract text from this document. Try another one.")
+            return None
+
+        # Create text chunks
+        text_chunks = create_text_chunks(text)
+        # Load embedding
+        embedding = embedder(model_type)
+        # Create vector store
+        vectorstore = create_vectorstore(text_chunks, embedding)
+        # Create conversation chain
+        return create_conversation_chain(model_type, vectorstore)
+    except Exception as e:
+        # Catch and handle any exception that might occur during processing
+        st.error("An error occurred during PDF processing. Please try again later.")
+        return None
 
 def main():
     # Initialize session state variables
