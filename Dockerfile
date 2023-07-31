@@ -17,5 +17,5 @@ COPY . .
 EXPOSE 8501
 
 # command to launch app
-CMD ["streamlit", "run", ".bin/app.py"]
+CMD streamlit run ./bin/app.py
 
