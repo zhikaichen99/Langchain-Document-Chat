@@ -14,7 +14,8 @@ from src.vectorstore import create_vectorstore
 from src.conversation import create_conversation_chain
 
 # Load environment variables
-load_dotenv(find_dotenv())
+#load_dotenv(find_dotenv())
+os.getenv("OPENAI_API_KEY")
 
 # Set app title and page config
 st.set_page_config(page_title="🤗 Langchain Document Chat")
